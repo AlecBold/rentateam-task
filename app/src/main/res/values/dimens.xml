@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="small_padding">4dp</dimen>
+    <dimen name="normal_padding">7dp</dimen>
+    <dimen name="big_padding">14dp</dimen>
+
+    <dimen name="list_user_item_height">85dp</dimen>
+
+    <dimen name="big_text_size">20sp</dimen>
+
+    <dimen name="avatar_width">100dp</dimen>
+    <dimen name="avatar_height">140dp</dimen>
+</resources>
