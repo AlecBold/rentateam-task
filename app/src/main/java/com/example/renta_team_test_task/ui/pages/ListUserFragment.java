@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class ListUserFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+    private static final String TAG = "ListUserFragment";
 
     private SwipeRefreshLayout refreshLayout;
     private ProgressBar progressBar;

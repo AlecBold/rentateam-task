@@ -16,12 +16,13 @@ import com.example.renta_team_test_task.R;
 import java.io.IOException;
 import java.util.Scanner;
 
-import io.reactivex.rxjava3.annotations.NonNull;
-import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.core.ObservableEmitter;
-import io.reactivex.rxjava3.core.ObservableOnSubscribe;
-import io.reactivex.rxjava3.core.Observer;
-import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+
 
 public class AboutFragment extends Fragment {
     public static final String TAG = "AboutFragment";
@@ -42,6 +43,7 @@ public class AboutFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_about, container, false);
         initViews(view);
+        Log.d(TAG, "onCreateView: ");
 
         setTaskText();
         return view;
@@ -55,7 +57,7 @@ public class AboutFragment extends Fragment {
     private void setTaskText() {
         Observable<String> observable = Observable.create(new ObservableOnSubscribe<String>() {
             @Override
-            public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Throwable {
+            public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Exception {
                 try {
                     Scanner scanner = new Scanner(requireActivity().
                             getApplicationContext().

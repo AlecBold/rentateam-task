@@ -1,5 +1,6 @@
 package com.example.renta_team_test_task.ui.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,16 +11,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.renta_team_test_task.R;
 import com.example.renta_team_test_task.pojo.JUser;
+import com.example.renta_team_test_task.ui.MainActivity;
 import com.example.renta_team_test_task.ui.pages.UserFragment;
+import com.example.renta_team_test_task.utils.AppConstants;
 
 import java.util.List;
 
@@ -48,9 +46,7 @@ public class UserListRecyclerViewAdapter extends RecyclerView.Adapter<UserListRe
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putInt(UserFragment.KEY_ID, jUser.getId());
-                Navigation.findNavController(view).navigate(R.id.action_list_user_dest_to_userFragment, bundle);
+                ((MainActivity) context).pushFragment(AppConstants.TAB_USER_LIST, UserFragment.newInstance(jUser.getId()));
             }
         });
     }

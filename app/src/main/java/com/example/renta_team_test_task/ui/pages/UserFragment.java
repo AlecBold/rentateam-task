@@ -1,15 +1,11 @@
 package com.example.renta_team_test_task.ui.pages;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,17 +18,10 @@ import com.example.renta_team_test_task.R;
 import com.example.renta_team_test_task.pojo.JUser;
 import com.example.renta_team_test_task.ui.viewmodels.UserViewModel;
 
-import java.util.List;
-import java.util.Observable;
-
 import javax.inject.Inject;
 
 import io.reactivex.MaybeObserver;
-import io.reactivex.Observer;
-import io.reactivex.Scheduler;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.observers.DisposableObserver;
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 public class UserFragment extends Fragment {
@@ -80,8 +69,6 @@ public class UserFragment extends Fragment {
 
         userViewModel.getUserById(Integer.toString(currentId)).subscribeOn(Schedulers.io()).subscribe(maybeObserver);
 
-        setBackPressedCallback(view);
-
         return view;
     }
 
@@ -120,15 +107,5 @@ public class UserFragment extends Fragment {
         lastNameTxt = view.findViewById(R.id.lastName);
         emailTxt = view.findViewById(R.id.email);
         avatarImg = view.findViewById(R.id.avatarImg);
-    }
-
-    private void setBackPressedCallback(View view) {
-        OnBackPressedCallback onBackPressedCallback = new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                Navigation.findNavController(view).popBackStack();
-            }
-        };
-        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), onBackPressedCallback);
     }
 }
