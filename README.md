@@ -34,13 +34,12 @@
 │   ├── MainActivity.java
 │   ├── pages
 │   │   ├── AboutFragment.java
-│   │   ├── ContainerUserFragment.java
 │   │   ├── ListUserFragment.java
 │   │   └── UserFragment.java
 │   └── viewmodels
 │       └── UserViewModel.java
-├── utils
-│   └── Variables.java
-└── validators
-    └── NetworkValidator.java
+└── utils
+    ├── AppConstants.java
+    └── Variables.java
+
 ```
